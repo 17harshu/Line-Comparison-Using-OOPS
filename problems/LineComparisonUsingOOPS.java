@@ -1,50 +1,44 @@
 package com.line.problems;
 
-import java.util.Scanner;
+class Points {
+	int x1;
+	int y1;
+	int x2;
+	int y2;
+
+	public Points(int x1, int y1, int x2, int y2) {
+		super();
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
+	}
+}
 
 public class LineComparisonUsingOOPS {
-	public static void calculateLength() {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Enter line1 first number- ");
-		int x1 = sc.nextInt();
-		System.out.print("Enter line1 second number- ");
-		int y1 = sc.nextInt();
-		System.out.print("Enter line1 third number- ");
-		int x2 = sc.nextInt();
-		System.out.print("Enter line1 fourth number- ");
-		int y2 = sc.nextInt();
-		System.out.print("Enter line2 first number- ");
-		int m1 = sc.nextInt();
-		System.out.print("Enter line2 second number- ");
-		int n1 = sc.nextInt();
-		System.out.print("Enter line2 third number- ");
-		int m2 = sc.nextInt();
-		System.out.print("Enter line2 fourth number- ");
-		int n2 = sc.nextInt();
-
-		// Calculate distance between two points
-		double length1 = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-		double length2 = Math.sqrt((m2 - m1) * (m2 - m1) + (n2 - n1) * (n2 - n1));
-
-		System.out.println("Length of line 1 :" + length1);
-		System.out.println("Length of line 2 :" + length2);
-
-		Object obj1 = new Object();
-		Object obj2 = new Object();
-
-		obj1 = length1;
-		obj2 = length2;
-
-		// equals() method is used to check equality of 2 lines
-		if (obj1.equals(obj2))
-			System.out.println("Lines are equal ");
-		else
-			System.out.println("Lines are not equal ");
-
-	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Line Comparison Computation Program");
-		calculateLength();
+		Points point1 = new Points(1, 2, 3, 4);
+		Points point2 = new Points(1, 2, 5, 8);
+		LineComparisonUsingOOPS line = new LineComparisonUsingOOPS();
+		int length1 = line.lineLengthCalculate(point1.x1, point1.x2, point1.y1, point1.y2);
+		int length2 = line.lineLengthCalculate(point2.x1, point2.x2, point2.y1, point2.y2);
+		line.compareTo(length1, length2);
+	}
+
+	public int lineLengthCalculate(int x1, int y1, int x2, int y2) {
+		int lineLength = (int) Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+		return lineLength;
+	}
+
+	public void compareTo(int length1, int length2) {
+		if (length1 == length2) {
+			System.out.println("Both lines are equal");
+		} else if (length1 > length2) {
+			System.out.println("Line 1 is greater than line 2");
+		} else {
+			System.out.println("Line 2 is greater than line 1");
+		}
 	}
 }
