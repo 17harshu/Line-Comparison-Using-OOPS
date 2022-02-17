@@ -19,8 +19,8 @@ public class LineComparisonUsingOOPS {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Line Comparison Computation Program");
-		Points point1 = new Points(1, 2, 3, 4);
-		Points point2 = new Points(1, 2, 5, 8);
+		Points point1 = new Points(1, 1, 4, 4);
+		Points point2 = new Points(1, 2, 4, 8);
 		LineComparisonUsingOOPS line = new LineComparisonUsingOOPS();
 		int length1 = line.lineLengthCalculate(point1.x1, point1.x2, point1.y1, point1.y2);
 		int length2 = line.lineLengthCalculate(point2.x1, point2.x2, point2.y1, point2.y2);
@@ -32,13 +32,21 @@ public class LineComparisonUsingOOPS {
 		return lineLength;
 	}
 
+	public void equalityCheck(int length1, int length2) {
+		if (length1 == length2) {
+			System.out.println("Lines are equal");
+		} else {
+			System.out.println("Lines are not equal");
+		}
+	}
+
 	public void compareTo(int length1, int length2) {
 		if (length1 == length2) {
 			System.out.println("Both lines are equal");
 		} else if (length1 > length2) {
 			System.out.println("Line 1 is greater than line 2");
 		} else {
-			System.out.println("Line 2 is greater than line 1");
+			System.out.println("Line 1 is greater than line 2");
 		}
 	}
 }
